@@ -1,0 +1,52 @@
+{
+  "root": "apps/nx-sequelize-snowflake-api",
+  "sourceRoot": "apps/nx-sequelize-snowflake-api/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/nx-sequelize-snowflake-api",
+        "main": "apps/nx-sequelize-snowflake-api/src/main.ts",
+        "tsConfig": "apps/nx-sequelize-snowflake-api/tsconfig.app.json",
+        "assets": ["apps/nx-sequelize-snowflake-api/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/nx-sequelize-snowflake-api/src/environments/environment.ts",
+              "with": "apps/nx-sequelize-snowflake-api/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "nx-sequelize-snowflake-api:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/nx-sequelize-snowflake-api/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/nx-sequelize-snowflake-api"],
+      "options": {
+        "jestConfig": "apps/nx-sequelize-snowflake-api/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

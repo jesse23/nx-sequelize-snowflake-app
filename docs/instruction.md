@@ -27,5 +27,18 @@ npm i @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
 - Follow [this link](https://chakra-ui.com/guides/integrations/with-react-table) to pull a basic table example
 
 - Follow [this link](https://chakra-ui.com/docs/components/overlay/modal) to pull a basic modal example
+  - [form control](https://chakra-ui.com/docs/components/form/form-control)
 
-## UI Mock up
+- [chart](https://codesandbox.io/s/jzjzr57jw?file=/demo.jsx)
+
+## Backend
+https://beeman.dev/posts/add-a-nestjs-api-to-a-nx-workspace-24f/
+
+```
+npm i -D @nrwl/nest
+nx generate @nrwl/nest:app nx-sequelize-snowflake-api
+```
+
+## sequelize
+https://docs.nestjs.com/recipes/sql-sequelize#sql-sequelize
+https://sequelize.org/v7/manual/dialect-specific-things.html
