@@ -93,16 +93,13 @@ pre {
 }
 #hero {
   align-items: center;
-  background-color: hsla(214, 62%, 21%, 1);
   border: none;
   box-sizing: border-box;
-  color: rgba(55, 65, 81, 1);
   display: grid;
   grid-template-columns: 1fr;
   margin-top: 3.5rem;
 }
 #hero .text-container {
-  color: rgba(255, 255, 255, 1);
   padding: 3rem 2rem;
 }
 #hero .text-container h2 {
@@ -397,4 +394,8 @@ summary svg {
   #middle-content {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+.table-content {
+  padding-top: 40px;
 }

@@ -1,5 +1,6 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import { ChakraProvider } from '@chakra-ui/react'
 import './styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {
@@ -8,9 +9,9 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Welcome to nx-sequelize-snowflake-app!</title>
       </Head>
-      <main className="app">
+      <ChakraProvider>
         <Component {...pageProps} />
-      </main>
+      </ChakraProvider>
     </>
   );
 }
