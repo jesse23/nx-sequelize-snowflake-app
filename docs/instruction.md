@@ -25,3 +25,7 @@ npm i @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
 - Follow [this link](https://chakra-ui.com/guides/getting-started/nextjs-guide) to do basic setup.
 
 - Follow [this link](https://chakra-ui.com/guides/integrations/with-react-table) to pull a basic table example
+
+- Follow [this link](https://chakra-ui.com/docs/components/overlay/modal) to pull a basic modal example
+
+## UI Mock up

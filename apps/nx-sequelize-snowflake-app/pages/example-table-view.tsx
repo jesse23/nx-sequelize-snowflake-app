@@ -1,69 +1,102 @@
-import { Table, Thead, Tbody, Tr, Th, Td, chakra } from '@chakra-ui/react'
-import { TriangleDownIcon, TriangleUpIcon } from '@chakra-ui/icons'
-import { useTable, useSortBy } from 'react-table'
-import { useMemo } from 'react'
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  IconButton,
+  chakra,
+} from '@chakra-ui/react';
+import { TriangleDownIcon, TriangleUpIcon, CloseIcon, SunIcon } from '@chakra-ui/icons';
+import { useTable, useSortBy } from 'react-table';
+import { useMemo } from 'react';
 
 export function ExampleTableView() {
   const data = useMemo(
     () => [
       {
-        fromUnit: 'inches',
-        toUnit: 'millimetres (mm)',
-        factor: 25.4,
+        userId: 'james23',
+        userName: 'James Brown',
+        email: 'james@gmail.com',
+        zipCode: '98158',
       },
       {
-        fromUnit: 'feet',
-        toUnit: 'centimetres (cm)',
-        factor: 30.48,
+        userId: 'rob34',
+        userName: 'Robert Wales',
+        email: 'rob@aol.com',
+        zipCode: '32827',
       },
       {
-        fromUnit: 'yards',
-        toUnit: 'metres (m)',
-        factor: 0.91444,
+        userId: 'cd6oy',
+        userName: 'Hairy Larry',
+        email: 'cd6oy@github.com',
+        zipCode: '92101',
       },
     ],
-    [],
-  )
+    []
+  );
 
   const columns = useMemo(
     () => [
       {
-        Header: 'To convert',
-        accessor: 'fromUnit',
+        Header: 'User Name',
+        accessor: 'userName',
       },
       {
-        Header: 'Into',
-        accessor: 'toUnit',
+        Header: 'Email',
+        accessor: 'email',
       },
       {
-        Header: 'Multiply by',
-        accessor: 'factor',
-        isNumeric: true,
+        Header: 'Zip Code',
+        accessor: 'zipCode',
+        Cell: ({value}) => (
+          <>
+          {value}
+          <IconButton
+            aria-label="Remove"
+            variant='link'
+            icon={<SunIcon />}
+          />
+          </>
+        )
+      },
+      {
+        Header: '',
+        accessor: 'action',
+        Cell: () => (
+          <IconButton
+            aria-label="Remove"
+            variant='link'
+            icon={<CloseIcon />}
+          />
+        ),
       },
     ],
-    [],
-  )
+    []
+  );
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ columns, data }, useSortBy)
+    useTable({ columns, data }, useSortBy);
 
   return (
     <Table {...getTableProps()}>
       <Thead>
         {headerGroups.map((headerGroup, idx) => (
           <Tr key={idx} {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column, idx ) => (
-              <Th key={idx}
+            {headerGroup.headers.map((column, idx) => (
+              <Th
+                key={idx}
                 {...column.getHeaderProps(column.getSortByToggleProps())}
                 isNumeric={column.isNumeric}
               >
                 {column.render('Header')}
-                <chakra.span pl='4'>
+                <chakra.span pl="4">
                   {column.isSorted ? (
                     column.isSortedDesc ? (
-                      <TriangleDownIcon aria-label='sorted descending' />
+                      <TriangleDownIcon aria-label="sorted descending" />
                     ) : (
-                      <TriangleUpIcon aria-label='sorted ascending' />
+                      <TriangleUpIcon aria-label="sorted ascending" />
                     )
                   ) : null}
                 </chakra.span>
@@ -74,18 +107,22 @@ export function ExampleTableView() {
       </Thead>
       <Tbody {...getTableBodyProps()}>
         {rows.map((row, idx) => {
-          prepareRow(row)
+          prepareRow(row);
           return (
             <Tr key={idx} {...row.getRowProps()}>
               {row.cells.map((cell, idx) => (
-                <Td key={idx} {...cell.getCellProps()} isNumeric={cell.column.isNumeric}>
+                <Td
+                  key={idx}
+                  {...cell.getCellProps()}
+                  isNumeric={cell.column.isNumeric}
+                >
                   {cell.render('Cell')}
                 </Td>
               ))}
             </Tr>
-          )
+          );
         })}
       </Tbody>
     </Table>
-  )
+  );
 }

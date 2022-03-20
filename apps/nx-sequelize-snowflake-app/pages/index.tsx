@@ -1,9 +1,9 @@
 import styles from './index.module.scss';
 import { ExampleTableView } from './example-table-view';
+import { BasicUsage } from './creat-dialog';
 
 export function Index() {
   return (
-    <>
       <div className={styles.page}>
         <div className="wrapper">
           <div className="container">
@@ -13,6 +13,7 @@ export function Index() {
 
             <div className="table-content">
               <ExampleTableView />
+              <BasicUsage />
             </div>
 
             <div id="middle-content">
@@ -78,7 +79,6 @@ export function Index() {
           </div>
         </div>
       </div>
-    </>
   );
 }
 
