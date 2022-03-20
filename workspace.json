@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "nx-sequelize-snowflake-app": "apps/nx-sequelize-snowflake-app",
+    "nx-sequelize-snowflake-app-e2e": "apps/nx-sequelize-snowflake-app-e2e"
+  }
+}

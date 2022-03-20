@@ -1,0 +1,28 @@
+{
+  "root": "apps/nx-sequelize-snowflake-app-e2e",
+  "sourceRoot": "apps/nx-sequelize-snowflake-app-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/nx-sequelize-snowflake-app-e2e/cypress.json",
+        "devServerTarget": "nx-sequelize-snowflake-app:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "nx-sequelize-snowflake-app:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/nx-sequelize-snowflake-app-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["nx-sequelize-snowflake-app"]
+}
