@@ -3,6 +3,7 @@
   "projects": {
     "nx-sequelize-snowflake-api": "apps/nx-sequelize-snowflake-api",
     "nx-sequelize-snowflake-app": "apps/nx-sequelize-snowflake-app",
-    "nx-sequelize-snowflake-app-e2e": "apps/nx-sequelize-snowflake-app-e2e"
+    "nx-sequelize-snowflake-app-e2e": "apps/nx-sequelize-snowflake-app-e2e",
+    "user": "libs/user"
   }
 }

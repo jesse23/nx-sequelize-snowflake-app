@@ -2,14 +2,11 @@ import { Module } from '@nestjs/common';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { CatController } from './cat.controller';
-import { catsProviders } from './cat.providers';
-import { CatsService } from './cat.service';
-import { databaseProviders } from './database.provider';
+import { UserModule } from '@nx-sequelize-snowflake-app/user'
 
 @Module({
-  imports: [],
-  controllers: [AppController, CatController],
-  providers: [AppService, CatsService, ...catsProviders, ...databaseProviders],
+  imports: [UserModule],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule { }

@@ -42,3 +42,8 @@ nx generate @nrwl/nest:app nx-sequelize-snowflake-api
 ## sequelize
 https://docs.nestjs.com/recipes/sql-sequelize#sql-sequelize
 https://sequelize.org/v7/manual/dialect-specific-things.html
+
+## new lib
+```
+npx nx g @nrwl/nest:library user --controller --service
+```

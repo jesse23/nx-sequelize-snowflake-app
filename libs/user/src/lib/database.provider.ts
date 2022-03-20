@@ -1,9 +1,9 @@
 import { Sequelize } from 'sequelize-typescript';
-import { Cat } from './cat.entity';
+import { User } from './user.entity';
 
 export const databaseProviders = [
   {
-    provide: 'SEQUELIZE',
+    provide: process.env.SEQ_DB,
     useFactory: async () => {
       const sequelize = new Sequelize({
         dialect: 'snowflake',
@@ -21,7 +21,7 @@ export const databaseProviders = [
         password: process.env.SEQ_PW,
         database: process.env.SEQ_DB,
       });
-      sequelize.addModels([Cat]);
+      sequelize.addModels([User]);
       await sequelize.sync();
       return sequelize;
     },
