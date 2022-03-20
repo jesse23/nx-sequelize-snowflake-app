@@ -14,8 +14,15 @@ export class UserService {
   }
 
   async createUser(user: Partial<User>): Promise<void> {
-    Promise.resolve();
     await this.userRepository.create(user)
+  }
+
+  async deleteUser(id: string):Promise<void> {
+    await this.userRepository.destroy({
+      where: {
+        id
+      }
+    })
   }
 }
 

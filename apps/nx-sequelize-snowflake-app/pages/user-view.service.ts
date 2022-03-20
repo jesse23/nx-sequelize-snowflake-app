@@ -10,3 +10,9 @@ export const getUsers = async (): Promise<User[]> => {
 export const createUser = async (user: Partial<User>): Promise<void> => {
   await axios.post('/api/user', user);
 }
+
+
+export const deleteUser = async (userId: number): Promise<void> => {
+  console.log(`Jesse: ${JSON.stringify(userId)}`)
+  await axios.delete(`/api/user/${userId}`);
+}

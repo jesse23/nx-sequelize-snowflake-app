@@ -19,6 +19,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { User } from './types';
 import axios from 'axios';
 import { CreateDialog } from './creat-dialog';
+import { deleteUser } from './user-view.service';
 
 const DUMMY_DATA: User[] = [
   {
@@ -72,15 +73,27 @@ export function UserView() {
         Cell: ({ value }) => (
           <>
             {value}
-            <IconButton aria-label="Remove" variant="link" icon={<SunIcon />} />
+            <IconButton
+              aria-label="Weather"
+              variant="link"
+              icon={<SunIcon />}
+            />
           </>
         ),
       },
       {
         Header: '',
-        accessor: 'action',
-        Cell: () => (
-          <IconButton aria-label="Remove" variant="link" icon={<CloseIcon />} />
+        accessor: 'id',
+        Cell: ({value}) => (
+          <IconButton
+            aria-label="Remove"
+            variant="link"
+            icon={<CloseIcon />}
+            onClick={async () => {
+              await deleteUser(value);
+              setLoaded(false);
+            }}
+          />
         ),
       },
     ],
