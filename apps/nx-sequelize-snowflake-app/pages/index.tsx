@@ -1,5 +1,4 @@
 import { UserView } from './user-view';
-import { LineChart } from './line-chart';
 
 export function Index() {
 
@@ -14,9 +13,7 @@ export function Index() {
             <div className="table-content">
               <UserView />
             </div>
-            <div className="table-content">
-              <LineChart />
-            </div>
+
 
             <div id="middle-content">
               <a

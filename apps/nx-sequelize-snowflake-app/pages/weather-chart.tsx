@@ -2,14 +2,16 @@ import React from 'react';
 import ReactHighcharts from 'react-highcharts';
 import moment from 'moment';
 
-export const LineChart = () => {
+export const WeatherChart = ({zipCode}: {
+  zipCode: string
+}) => {
   const configPrice = {
     title: {
-        text: 'Solar Employment Growth by Sector, 2010-2016'
+        text: `Temperature for ${zipCode}`
     },
 
     subtitle: {
-        text: 'Source: thesolarfoundation.com'
+        text: 'Source: Weather Source .LLC from Snowflake Marketplace'
     },
 
     yAxis: {

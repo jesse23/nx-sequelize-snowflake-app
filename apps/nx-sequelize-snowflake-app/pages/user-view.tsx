@@ -20,13 +20,15 @@ import { User } from './types';
 import axios from 'axios';
 import { CreateDialog } from './creat-dialog';
 import { deleteUser } from './user-view.service';
+import { WeatherChart } from './weather-chart';
 
+/*
 const DUMMY_DATA: User[] = [
   {
     id: 1,
     userName: 'James Brown',
     email: 'james@gmail.com',
-    zipCode: '98158',
+    zipCode: '98138',
   },
   {
     id: 2,
@@ -38,13 +40,18 @@ const DUMMY_DATA: User[] = [
     id: 3,
     userName: 'Hairy Larry',
     email: 'cd6oy@github.com',
-    zipCode: '92101',
+    zipCode: '92164',
   },
+  {
+    zipCode: '48048'
+  }
 ];
+*/
 
 export function UserView() {
   const [loaded, setLoaded] = useState(false);
   const [data, setData] = useState([] as User[]);
+  const [activeZipCode, setActiveZipCode] = useState('');
 
   useEffect(() => {
     if (!loaded) {
@@ -77,6 +84,9 @@ export function UserView() {
               aria-label="Weather"
               variant="link"
               icon={<SunIcon />}
+              onClick={() =>
+                setActiveZipCode((curr) => (curr !== value ? value : ''))
+              }
             />
           </>
         ),
@@ -84,7 +94,7 @@ export function UserView() {
       {
         Header: '',
         accessor: 'id',
-        Cell: ({value}) => (
+        Cell: ({ value }) => (
           <IconButton
             aria-label="Remove"
             variant="link"
@@ -150,6 +160,11 @@ export function UserView() {
         </Tbody>
       </Table>
       <CreateDialog onSubmit={() => setLoaded(false)} />
+      {activeZipCode && (
+        <div className="table-content">
+          <WeatherChart zipCode={activeZipCode} />
+        </div>
+      )}
     </>
   );
 }
