@@ -1,5 +1,6 @@
 {
   "name": "nx-sequelize-snowflake-app",
+  "keywords": ["nx", "nrwl", "react", "next.js", "nestjs", "sequelize", "snowflake"],
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
