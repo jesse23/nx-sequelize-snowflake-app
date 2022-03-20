@@ -2,7 +2,7 @@ import { Table, Column, Model } from 'sequelize-typescript';
 
 @Table
 export class User extends Model {
-  @Column
+  @Column({primaryKey: true, autoIncrement: true})
   id: number;
 
   @Column

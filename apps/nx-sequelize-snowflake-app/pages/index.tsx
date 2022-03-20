@@ -1,8 +1,9 @@
-import { ExampleTableView } from './example-table-view';
-import { BasicUsage } from './creat-dialog';
+import { UserView } from './user-view';
 import { LineChart } from './line-chart';
 
 export function Index() {
+
+
   return (
         <div className="wrapper">
           <div className="container">
@@ -11,8 +12,7 @@ export function Index() {
             </div>
 
             <div className="table-content">
-              <ExampleTableView />
-              <BasicUsage />
+              <UserView />
             </div>
             <div className="table-content">
               <LineChart />

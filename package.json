@@ -26,6 +26,7 @@
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
     "@nrwl/next": "13.9.3",
+    "axios": "^0.26.1",
     "core-js": "^3.6.5",
     "framer-motion": "^6.2.8",
     "moment": "^2.29.1",

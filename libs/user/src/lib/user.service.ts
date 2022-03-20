@@ -13,15 +13,9 @@ export class UserService {
     return this.userRepository.findAll<User>();
   }
 
-  async createUser(): Promise<void> {
+  async createUser(user: Partial<User>): Promise<void> {
     Promise.resolve();
-    /*
-    await this.userRepository.create({
-      userName: 'Jesse',
-      email: 'test@bbb.com',
-      zipCode: '48098'
-    })
-    */
+    await this.userRepository.create(user)
   }
 }
 
