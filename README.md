@@ -26,3 +26,5 @@ cp ./apps/nx-sequelize-snowflake-api/.env ./apps/nx-sequelize-snowflake-api/.loc
 npx nx serve nx-sequelize-snowflake-api
 npx nx serve nx-sequelize-snowflake-app
 ```
+
+![snapshot](./docs/snapshot.png)
