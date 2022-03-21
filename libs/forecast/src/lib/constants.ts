@@ -1,0 +1,1 @@
+export const FORECAST_REPOSITORY = Symbol('FORECAST_REPOSITORY')

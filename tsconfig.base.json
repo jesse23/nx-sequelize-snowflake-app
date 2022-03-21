@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-sequelize-snowflake-app/forecast": ["libs/forecast/src/index.ts"],
       "@nx-sequelize-snowflake-app/user": ["libs/user/src/index.ts"]
     }
   },

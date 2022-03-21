@@ -46,5 +46,5 @@ https://sequelize.org/v7/manual/dialect-specific-things.html
 ## new lib
 ```
 npx nx g @nrwl/nest:library user --controller --service
-npx nx g @nrwl/nest:library weather --controller --service
+npx nx g @nrwl/nest:library forecast --controller --service
 ```
