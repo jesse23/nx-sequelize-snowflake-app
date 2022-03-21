@@ -5,3 +5,11 @@ export interface User {
   email: string,
   zipCode: string,
 }
+
+export interface Forecast {
+  postCode: string,
+  date: Date,
+  minTemp: number,
+  avgTemp: number,
+  maxTemp: number,
+}

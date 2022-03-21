@@ -17,10 +17,9 @@ import {
 import { useTable, useSortBy } from 'react-table';
 import { useEffect, useMemo, useState } from 'react';
 import { User } from './types';
-import axios from 'axios';
 import { CreateDialog } from './creat-dialog';
-import { deleteUser } from './user-view.service';
-import { WeatherChart } from './weather-chart';
+import { deleteUser, getUsers } from './user-view.service';
+import { ForecastChart } from './forecast-chart';
 
 /*
 const DUMMY_DATA: User[] = [
@@ -34,7 +33,7 @@ const DUMMY_DATA: User[] = [
     id: 2,
     userName: 'Robert Wales',
     email: 'rob@aol.com',
-    zipCode: '32827',
+    zipCode: '32899',
   },
   {
     id: 3,
@@ -56,8 +55,7 @@ export function UserView() {
   useEffect(() => {
     if (!loaded) {
       const load = async () => {
-        const res = await axios.get('/api/user');
-        setData(res.data as User[]);
+        setData(await getUsers());
         setLoaded(true);
       };
       load();
@@ -102,6 +100,7 @@ export function UserView() {
             onClick={async () => {
               await deleteUser(value);
               setLoaded(false);
+              setActiveZipCode('');
             }}
           />
         ),
@@ -159,10 +158,15 @@ export function UserView() {
           })}
         </Tbody>
       </Table>
-      <CreateDialog onSubmit={() => setLoaded(false)} />
+      <CreateDialog
+        onSubmit={() => {
+          setLoaded(false);
+          setActiveZipCode('');
+        }}
+      />
       {activeZipCode && (
         <div className="table-content">
-          <WeatherChart zipCode={activeZipCode} />
+          <ForecastChart zipCode={activeZipCode} />
         </div>
       )}
     </>

@@ -13,7 +13,8 @@ export class ForecastService {
     const res = await this.forecastRepository.findAll<ForecastDay>({
       where: {
         'postal_code': zipCode
-      }
+      },
+      order: ['date_valid_std']
     });
     console.log(res[0].postCode);
     return res;

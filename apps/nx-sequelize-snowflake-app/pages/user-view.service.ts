@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { User } from './types';
+import { Forecast, User } from './types';
 
 export const getUsers = async (): Promise<User[]> => {
   const res = await axios.get('/api/user');
@@ -13,6 +13,13 @@ export const createUser = async (user: Partial<User>): Promise<void> => {
 
 
 export const deleteUser = async (userId: number): Promise<void> => {
-  console.log(`Jesse: ${JSON.stringify(userId)}`)
   await axios.delete(`/api/user/${userId}`);
+}
+
+export const getForecast = async (zipCode: string): Promise<Forecast[]> => {
+  const res = await axios.get(`/api/forecast/${zipCode}`);
+  return res.data.map(d => ({
+    ...d,
+    date: new Date(d.date)
+  }));
 }
